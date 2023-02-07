@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pixelated Circle</title>
+  </head>
+  <body>
+    <canvas id="canvas" ; width: 100%; text-align:center; background-color: 'black'></canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      var centerX = canvas.width;
+      var centerY = canvas.height;
+      var radius = 140;
+      var pixelSize = 1;
+
+      canvas.width = 600;
+      canvas.height = 600;
+
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 1;
+
+      for (var i = 0; i < Math.PI/2; i += 0.01) {
+        var x = centerX + radius * Math.cos(i);
+        var y = centerY + radius * Math.sin(i);
+        ctx.fillRect(x, y, pixelSize, pixelSize);
+      }
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
